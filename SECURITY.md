@@ -42,7 +42,7 @@ Dependabot proposes updates once a week, for the npm packages, GitHub Actions an
 
 | Package | Advisory | Why it's accepted |
 |---|---|---|
-| `deepmerge-ts` 7.1.5, from `@prisma/config` | Stack exhaustion on recursive objects ([GHSA-ggr8-5vv4-36mx](https://github.com/advisories/GHSA-ggr8-5vv4-36mx)) | Only merges Prisma's own config when its CLI starts; no user input reaches it. The fix is in 8.x, which Prisma doesn't support yet. |
 | `eslint` 9 | Version no longer supported | Development only. Waits for `eslint-config-next` to support ESLint 10. |
+| `minimatch` 3.1.5 / 10.2.6, from `eslint` and `@typescript-eslint` | Potential denial of service via globparts amplification ([GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249)) | Development and linting only; no user input reaches ESLint glob patterns. |
 
 `mysql2`, which Prisma's CLI ships but Dossier never loads (it uses PostgreSQL), is pinned to a patched release in `package.json` `resolutions`. Remove the pin once Prisma updates it.
